@@ -6,7 +6,7 @@ const Navbar = () => {
      <nav class="navbar">
         <ul class="nav-list">
             <li  class="nav-item">
-            <Link href="./components/home" legacyBehavior>
+            <Link href="/" legacyBehavior>
                 <a>Home</a>
             </Link>
             </li>
@@ -26,7 +26,7 @@ const Navbar = () => {
             </Link>
             </li>
             <li  class="nav-item">
-            <Link href="./product" legacyBehavior>
+            <Link href="./components/1" legacyBehavior>
                 <a>Product</a>
             </Link>
             </li>

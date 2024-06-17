@@ -3,7 +3,7 @@ import React from 'react'
 import Card from "./Card";
 import Navbar from "./Navbar";
 
-const home = () => {
+const Home = () => {
   
   let [intity , setintity] = useState();
   let apiUrl = `https://fakestoreapi.com/products`;
@@ -37,4 +37,4 @@ const home = () => {
     </>
   )
 }
-export default home;
+export default Home;

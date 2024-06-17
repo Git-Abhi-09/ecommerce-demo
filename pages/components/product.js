@@ -1,10 +1,11 @@
 import React from 'react'
-import SingleProduct from './SingleProduct';
+import SingleCard from './SingleCard';
 
 const product = () => {
+
   return (
     <>
-      <SingleProduct/>
+      <SingleCard/>
     </>
   )
 }
