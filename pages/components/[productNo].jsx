@@ -1,17 +1,18 @@
+
 import { useRouter } from "next/router";
-import { useState ,useEffect} from "react";
-import SingleCard from "./SingleCard";
-import axios from "axios";
+import React from 'react'
+import SingleCard from './SingleCard';
+import { useState , useEffect} from 'react';
 
 const productNo = () => {
-    const router = useRouter();
-    const productNum = router.query.productNo;
+      const router = useRouter();
+      const productNum = router.query.productNo;
 
     let [intity , setintity] = useState();
     let apiUrl = `https://fakestoreapi.com/products/${productNum}`;
     let data;
     async function pullapi(){
-      const resData = await axios.get(apiUrl);
+      const resData = await fetch(apiUrl);
       // const resData = await res.json();
       console.log(resData);
       data =
@@ -27,15 +28,16 @@ const productNo = () => {
           />
       setintity(data);
     }
+  
     useEffect(()=>{
-        pullapi();
-      },[]);
-
+      pullapi();
+    },[]);
   return (
-    <>
+    <div>
       {intity}
-    </>
+    </div>
   )
 }
 
 export default productNo;
+
