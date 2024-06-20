@@ -1,10 +1,11 @@
 import React from 'react'
+import Navbar from './Navbar';
 const SingleCard = (props) => {
   return (
     <>
      <div className="card">
         <div className="card-content">
-      <img src={props.image} alt="Card image" height="400" width="250" className="card-image"></img>
+   <center>   <img src={props.image} alt="Card image" height="400" width="250" className="card-image"></img></center>
           <h2 className="card-title"> Title : {props.title}</h2>
           <h3 className="card-text">price : {props.price}</h3>
           <p className="card-text">description : {props.description}</p>

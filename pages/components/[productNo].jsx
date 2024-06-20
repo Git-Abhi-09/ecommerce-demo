@@ -1,43 +1,50 @@
-
 import { useRouter } from "next/router";
-import React from 'react'
-import SingleCard from './SingleCard';
-import { useState , useEffect} from 'react';
+import React from "react";
+import SingleCard from "./SingleCard";
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
+import Navbar from "./Navbar";
 
 const productNo = () => {
-      const router = useRouter();
-      const productNum = router.query.productNo;
+  const param = useParams();
+  const [entity, setEntity] = useState(null);
+  const apiUrl = `https://fakestoreapi.com/products/${param?.productNo}`;
 
-    let [intity , setintity] = useState();
-    let apiUrl = `https://fakestoreapi.com/products/${productNum}`;
-    let data;
-    async function pullapi(){
-      const resData = await fetch(apiUrl);
-      // const resData = await res.json();
-      console.log(resData);
-      data =
-          <SingleCard
-            title={resData.title}
-            image={resData.image}
-            price={resData.price}
-            description={resData.description}
-            category={resData.category}
-            // rating={resData.rating.rate}
-            // count={resData.rating.count}
-
-          />
-      setintity(data);
+  async function getProductData() {
+    try {
+      const res = await fetch(apiUrl);
+      setEntity(await res.json());
+    } catch (error) {
+      console.log(error);
     }
-  
-    useEffect(()=>{
-      pullapi();
-    },[]);
+  }
+
+  useEffect(() => {
+    if (param?.productNo) {
+      getProductData();
+    }
+  }, [param]);
+
   return (
-    <div>
-      {intity}
+    <>
+    <Navbar/>
+
+   <div className="singleCard">
+      {entity && (
+        <SingleCard
+          title={entity.title}
+          image={entity.image}
+          price={entity.price}
+          description={entity.description}
+          category={entity.category}
+          rating={entity.rating.rate}
+          count={entity.rating.count}
+        />
+      )}
     </div>
-  )
-}
+    </>
+
+  );
+};
 
 export default productNo;
-

@@ -47,9 +47,6 @@ body {
   width: vw;
 }
 
-
-
-
 .card {
   margin: 20px;
   padding: 20px;
@@ -58,6 +55,7 @@ body {
   width: 300px;
   border-radius: 8px;
   box-shadow:0px 2px 4px rgba(0, 0, 0, 0.2) ;
+  height: 25rem;
 }
 
 .card:hover {
@@ -66,8 +64,8 @@ body {
 }
 
 .card-image {
-  width: 100%;
-  height: auto;
+  width: 200px;
+  height: 200px;
 }
 
 .card-content {
@@ -85,6 +83,7 @@ body {
   margin: 16px 0;
   font-size: 1em;
   line-height: 1.5;
+  text-align: center;
 }
 
 .card-button {
@@ -103,4 +102,7 @@ body {
 }
 
 
-
+.singleCard{
+  display: flex;
+  justify-content: center;
+}
